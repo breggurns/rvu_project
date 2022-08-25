@@ -1,0 +1,11 @@
+name: shiny
+title:
+username:
+account: ucsf-rcs-hbs
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6849745
+bundleId: 6238119
+url: https://ucsf-rcs-hbs.shinyapps.io/shiny/
+when: 1661453115.37889
+lastSyncTime: 1661453115.3789
