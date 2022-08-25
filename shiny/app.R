@@ -30,7 +30,7 @@ ui <- fluidPage(
   column(4, wellPanel(
     selectInput('campus',
                 label = 'Campus',
-                choices = c("All", "mb", "parn")
+                choices = c("mb", "parn")
     )
   )),
   column(6,
@@ -41,10 +41,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   output$my_table  <- renderDataTable({
     
-    # campusInput <- reactive({
-    #   productive_dat %>% filter(campus == input$campus)
-    # })
-    
+    # Productive table, filtered by dateRange and campus
     productive_dat %>% 
       group_by(year, month, productive_hour_type) %>% 
       filter(DATE >= input$dateRange[1] & 
@@ -52,6 +49,8 @@ server <- function(input, output, session) {
                campus == input$campus) %>% 
       summarise(sum_hours = sum(sum_hours),
                 sum_fte = sum(sum_fte))
+    
+    # 
     
   })
 }
